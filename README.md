@@ -57,4 +57,4 @@ To come next :
 - Device file discovery doc.
 - File management unit test codes and their docs.
 
-Published documentation is accessible from [this index](./doc/OO_INTRO_INDEX.md)
+Published documentation is accessible from [this index](./doc/00_INTRO_INDEX.md)
