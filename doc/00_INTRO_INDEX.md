@@ -7,7 +7,7 @@ Documentation is detailed and have been written so that part of it could be used
 
 Here are the currently available sections :
 
-1. [QualifyingtheUSBdeviceonLinux.html]([https://github.com/bjgillet/hdnafx-git/doc/01_QualifyingtheUSBdeviceonLinux.html](https://github.com/bjgillet/hbdnafx-git/blob/main/doc/01_QualifyingtheUSBdeviceonLinux.html))<br>
+1. [QualifyingtheUSBdeviceonLinux.html](https://github.com/bjgillet/hbdnafx-git/blob/main/doc/01_QualifyingtheUSBdeviceonLinux.html)br>
 How to qualify and find important system and USB informations.
 
 2. [System and Security settings](./02_SystemandSecuritysettings.html)<br>
