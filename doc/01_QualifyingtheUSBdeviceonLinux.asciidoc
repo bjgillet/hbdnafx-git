@@ -1,0 +1,210 @@
+[[h.cgqywbl05ue]]
+== [.c9]#Qualifying the USB device on Linux.#
+
+[.c4]#This section presents how to qualify an USB device on Linux, more
+specifically the DNAfx_git device. It will give us useful information we
+will commonly use all along this project. +
+I guess it may also be a good USB mini tutorial for whoever wants to
+understand or integrate a USB device, whatever it could be.#
+
+[.c4]##
+
+[.c4]#You will not need to be root in this section.#
+
+[.c4]#First of all, plug the DNAfx_git and have a first look at your usb
+devices through lsusb.#
+
+[.c4]##
+
+[#t.c9d727e25ffb8306f5f22d2f28115e436031fc31]##[#t.0]##
+
+[width="100%",cols="100%",]
+|===
+a|
+[.c14]#[bgillet@izabel ~]%#[.c3]# lsusb#
+
+[.c3]#Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub#
+
+[.c3]#Bus 001 Device 008: ID 138a:0090 Validity Sensors, Inc. VFS7500
+Touch Fingerprint Sensor#
+
+[.c3]#Bus 001 Device 006: ID 04f2:b596 Chicony Electronics Co., Ltd
+Integrated Camera#
+
+[.c19]#Bus 001 Device 018: ID 0483:5703 STMicroelectronics HB100#
+
+[.c3]#Bus 001 Device 004: ID 1050:0010 Yubico.com Yubikey (v1 or v2)#
+
+[.c3]#Bus 001 Device 007: ID 046d:0825 Logitech, Inc. Webcam C270#
+
+[.c3]#Bus 001 Device 005: ID 046d:c534 Logitech, Inc. Unifying Receiver#
+
+[.c3]#Bus 001 Device 003: ID 05e3:0608 Genesys Logic, Inc. Hub#
+
+[.c3]#Bus 001 Device 014: ID 04e8:6860 Samsung Electronics Co., Ltd
+Galaxy series, misc. (MTP mode)#
+
+[.c3]#Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub#
+
+[.c3]##
+
+[.c3]##
+
+|===
+
+[.c4]##
+
+[.c4]#Here we see the device is on Bus 001, registered as Device 018,
+and had a vendor:product id of 0483:5703.#
+
+[.c4]#This id will never change for this product, but in case you try
+another device (ie. the pro device) here is how to find it so to adapt
+it.#
+
+[.c4]##
+
+[.c4]#Also, a device file will be created/removed as it is
+plugged/unplugged. +
+It’s number may vary depending on the USB devices usage on a same
+platform.#
+
+[.c4]##
+
+[.c4]#To identify the current device file used, just plug / unplug it
+and list the /dev to find which device file is created for it.#
+
+[.c4]##
+
+[.c4]#To qualify the device and the way it is declared on USB, run the
+following command. +
+(For the example, we have identified current device as /dev/hidraw5)#
+
+[.c4]##
+
+[#t.403a5536dc055f38df4c225c41c219faf3951182]##[#t.1]##
+
+[width="100%",cols="100%",]
+|===
+a|
+[.c14]#[bgillet@izabel ~]%#[.c3]# udevadm info -a -n /dev/hidraw5#
+
+[.c3]#…/…#
+
+[.c7]#looking at parent device
+'/devices/pci0000:00/0000:00:14.0/usb2/2-1':#
+
+[.c7]#        KERNELS=="2-1"#
+
+[.c16]#        #[.c0]#SUBSYSTEMS=="usb"#
+
+[.c7]#        DRIVERS=="usb"#
+
+[.c7]#        ATTRS\{authorized}=="1"#
+
+[.c7]#        ATTRS\{avoid_reset_quirk}=="0"#
+
+[.c7]#        ATTRS\{bConfigurationValue}=="1"#
+
+[.c7]#        ATTRS\{bDeviceClass}=="00"#
+
+[.c7]#        ATTRS\{bDeviceProtocol}=="00"#
+
+[.c7]#        ATTRS\{bDeviceSubClass}=="00"#
+
+[.c7]#        ATTRS\{bMaxPacketSize0}=="64"#
+
+[.c7]#        ATTRS\{bMaxPower}=="100mA"#
+
+[.c7]#        ATTRS\{bNumConfigurations}=="1"#
+
+[.c7]#        ATTRS\{bNumInterfaces}==" 1"#
+
+[.c7]#        ATTRS\{bcdDevice}=="00c8"#
+
+[.c7]#        ATTRS\{bmAttributes}=="c0"#
+
+[.c7]#        ATTRS\{busnum}=="2"#
+
+[.c7]#        ATTRS\{configuration}==""#
+
+[.c7]#        ATTRS\{devnum}=="7"#
+
+[.c7]#        ATTRS\{devpath}=="1"#
+
+[.c0]#        ATTRS\{idProduct}=="5703"#
+
+[.c0]#        ATTRS\{idVendor}=="0483"#
+
+[.c7]#        ATTRS\{ltm_capable}=="no"#
+
+[.c0]#        ATTRS\{manufacturer}=="STMicroelectronics"#
+
+[.c7]#        ATTRS\{maxchild}=="0"#
+
+[.c7]#        ATTRS\{physical_location/dock}=="no"#
+
+[.c7]#        ATTRS\{physical_location/horizontal_position}=="center"#
+
+[.c7]#        ATTRS\{physical_location/lid}=="no"#
+
+[.c7]#        ATTRS\{physical_location/panel}=="right"#
+
+[.c7]#        ATTRS\{physical_location/vertical_position}=="lower"#
+
+[.c7]#        ATTRS\{power/active_duration}=="1510739"#
+
+[.c7]#        ATTRS\{power/autosuspend}=="2"#
+
+[.c7]#        ATTRS\{power/autosuspend_delay_ms}=="2000"#
+
+[.c7]#        ATTRS\{power/connected_duration}=="1510739"#
+
+[.c7]#        ATTRS\{power/control}=="on"#
+
+[.c7]#        ATTRS\{power/level}=="on"#
+
+[.c7]#        ATTRS\{power/persist}=="1"#
+
+[.c7]#        ATTRS\{power/runtime_active_time}=="1510498"#
+
+[.c7]#        ATTRS\{power/runtime_status}=="active"#
+
+[.c7]#        ATTRS\{power/runtime_suspended_time}=="0"#
+
+[.c0]#        ATTRS\{product}=="HB100"#
+
+[.c7]#        ATTRS\{quirks}=="0x0"#
+
+[.c7]#        ATTRS\{removable}=="removable"#
+
+[.c7]#        ATTRS\{remove}=="(not readable)"#
+
+[.c7]#        ATTRS\{rx_lanes}=="1"#
+
+[.c7]#        ATTRS\{serial}=="00000000001A"#
+
+[.c7]#        ATTRS\{speed}=="12"#
+
+[.c7]#        ATTRS\{tx_lanes}=="1"#
+
+[.c7]#        ATTRS\{urbnum}=="17"#
+
+[.c7]#        ATTRS\{version}==" 2.00"#
+
+[.c7]#…/…#
+
+|===
+
+[.c4]##
+
+[.c4]#Several parent devices exist, find the one which contains idVendor
+and idProduct with respectively 0483 and 6703 as identified though
+lsusb.#
+
+[.c4]##
+
+[.c4]#Key information here are things like SUBSYSTEMS that lsusb -v does
+not provide, but not only. Those will be useful all along in this
+document.#
+
+[.c4]##
