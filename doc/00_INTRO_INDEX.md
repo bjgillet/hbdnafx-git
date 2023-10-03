@@ -7,8 +7,8 @@ Documentation is detailed and have been written so that part of it could be used
 
 Here are the currently available sections :
 
-1. [QualifyingtheUSBdeviceonLinux](01_QualifyingtheUSBdeviceonLinux.pdf)<br>
+1. [QualifyingtheUSBdeviceonLinux](01_Qualifying the USB device on Linux.pdf)<br>
 How to qualify and find important system and USB informations.
 
-2. [System and Security settings](./02_SystemandSecuritysettings.pdf)<br>
+2. [System and Security settings](./02_System and Security settings.pdf)<br>
 Security contraints, creating udev rules, setting up the system for a safe environment (valid for both dev and production environments).
