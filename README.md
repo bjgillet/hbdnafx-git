@@ -18,20 +18,20 @@ All in all I think that for the very low price it is a very good device with a v
 ### About the free software Harley Benton provide
 
 The edition software runs only on Windows or Mac, and has a lot of limitations.
-- On Windows  admin rights are mandatory. That is just not possible, especially on Windows... (suicide incitation ?)
+- On Windows  admin rights are mandatory. That is just not possible, especially on Windows,. (suicide incitation ?)
 - It cannot be used with device off-line.
 - Rearranging effects order is painfull.
 - Updating a preset require full import of the preset, going through disk save/re-load.
 - It is not possible to prepare and save one-shot specific presets ranges (ie. having a list a Jazz/Blues presets pre-defined and saved one shot to device at a dedicated bank range).
 - Device documentation is awfull. The software does not have any.
-- ...
+- ,.
 
 Harley Benton is a music instruments and device producer, they have no dedicated software engineering department and experience and very probably used a contractor one shot.<br>
 Therefore, I cannot really reproach them the Software issues, especially as they build pretty good (even if inexpensive) devices and guitars.<br>
 
 ### About this Project
 
-This project intends to create a Python / GTK+ software, initially on Linux, to address those issues (Security, Functionnalities, etc...).<br>
+This project intends to create a Python / GTK+ software, initially on Linux, to address those issues (Security, Functionnalities, etc,.).<br>
 Theoretically, adopting it to Mac or even Windows should not be an issue (Python is multi-platform) but those OS specificities in terms of security (USB rw access) will require some spesific settings.
 
 As in a device discovery phasis, the following process have been adopted :

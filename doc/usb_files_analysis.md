@@ -1,8 +1,8 @@
-# USB protocol and Files format analysis
+# Files format analysis
 
 ## Introduction
 
-Here is the current status of those analysis.
+Here is the current analysis status.
 Anything has not been totally understood yet, but current understanding makes it usable for the following :
 
 1. Loading and interpreting a backup file from original Software regarding presets.
@@ -75,7 +75,7 @@ There, you will find codes for effects and simulations per chain section, full l
 
 Note that the initial backup from the windows software is too short in size by 32 bytes.<br>
 This is the reason why device returns an error on the device when last preset is trying to be restored.<br>
-Perhaps a too short buffer size somewhere...
+Perhaps a too short buffer size somewhere,.
 
 So, here we are (currently) with file analysis.
 Soon to come, some POC code as well as USB protocol analysis.
