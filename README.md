@@ -35,11 +35,9 @@ This project intends to create a Python / GTK+ software, initially on Linux, to 
 Theoretically, adopting it to Mac or even Windows should not be an issue (Python is multi-platform) but those OS specificities in terms of security (USB rw access) will require some spesific settings.
 
 As in a device discovery phasis, the following process have been adopted :
-1. Discovery by analysis - documentation
-2. Validation of discovered items by unit test codes - discovery documentation updates.
-3. Publication of validated docs parts as available.
-3. Documentation of the unit test code.
-4. Publication of code and dedicated doc.
+1. Discovery by analysis. Discovery documentation creation.
+2. Validation of discovered items by unit test codes - discovery documentation updates if required.
+3. Publication of codes and dedicated doc.
 
 ## Project status at October 3, 2023.
 
@@ -49,12 +47,13 @@ Preset JSON and full backup binary files have been decoded and understood at abo
 USB protocol is currently understood at about 60 %.<br>
 
 Items published so far :
-- USB device discovery (system side / not the protocol)
-- System and Security constaints and setup.
+- USB device discovery (doc/01_QualifyingtheUSBdeviceonLinux.pdf)
+- System and Security constaints and setup.(doc/02_SystemandSecuritysettings.pdf)
+- Device file discovery .(doc/03_DNAfx-git Files data structures.pdf)
 
 To come next :
 
-- Device file discovery doc.
-- File management unit test codes and their docs.
+- Initial python classes for data (HbData, Effect) and their data configuration file (hb_data.json). (with test code)
+- Documentation of initial classes and data structures within hbdna-edit.
 
 Published documentation is accessible from [this index](./doc/00_INTRO_INDEX.md)
