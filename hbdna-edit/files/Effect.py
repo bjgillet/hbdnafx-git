@@ -35,15 +35,11 @@ class Effect:
     print("Effect ID =", self.eff_id)
 
 if __name__=='__main__':
-  effect = Effect("coucou")
-  effect.debug()
-  effect.refresh(4)
-  effect.debug()
-  hb_data = HbData("/home/doudou/DEV/HB100-DNAfx-git/files/json/hb_data.json")
-  effect2 = Effect(hb_data,"AMP",30)
-  print(effect2.hb_data)
-  print(effect2.get_effect())
-  print("effect name : ",effect2.get_name())
-  print("Effect parameters number : ", effect2.get_params_number())
-  print("Effect params : ", effect2.get_params())
-  print("Target hb_data filename : ", path.dirname(__file__) + "/json/hbdata.json")
+
+  hb_data = HbData()
+  effect = Effect(hb_data,"AMP",30)
+  print(effect.hb_data)
+  print(effect.get_effect())
+  print("effect name : ",effect.get_name())
+  print("Effect parameters number : ", effect.get_params_number())
+  print("Effect params : ", effect.get_params())
