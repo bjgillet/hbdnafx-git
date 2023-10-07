@@ -4,8 +4,8 @@ import json
 class HbData:
     def __init__(self,str_data_file=None):
         if str_data_file == None :
-            str_data_file = path.dirname(__file__)+"/json/hb_data.json"
-           # str_data_file = "/json/hb_data.json"
+            str_data_file = path.dirname(__file__)+"/hb_data.json"
+            print("data file : ",str_data_file)
         self.fd = open(str_data_file)
         self.hb_data = json.load(self.fd)
 
