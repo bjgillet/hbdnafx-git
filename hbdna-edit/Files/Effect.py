@@ -23,7 +23,7 @@ class Effect:
     return self.eff_data[0]
 
   def get_params_number(self):
-    return len(self.eff_data)-1
+    return len(self.eff_data)-2
   
   def get_params(self):
     return self.eff_data[1:len(self.eff_data)-1]
