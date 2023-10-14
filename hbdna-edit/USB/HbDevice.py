@@ -59,11 +59,24 @@ class HbDevice :
             res = self.ep_it_out.write(msg)
             print("Res preset : res 2 = ", res)
 
+ #   def read_device(self):
+ #      if self.dev:
+ #           for i in range(10):
+ #               buff = self.ep_it_in.read(64)
+ #               print(" From IRQ IN : ", buff)
+
     def read_device(self):
        if self.dev:
-            for i in range(10):
-                buff = self.ep_it_in.read(64)
-                print(" From IRQ IN : ", buff)
+ #           for i in range(10):
+                buff=None
+                try:
+                    buff = self.ep_it_in.read(64)
+                except usb.core.USBTimeoutError:
+                    pass
+
+                if buff :
+                    print(" From IRQ IN : ", buff)
+                    buff=None       
     
 
 

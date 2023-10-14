@@ -4,12 +4,12 @@ import HbDevice
 class DevReader (threading.Thread):
     
     def __init__(self, hb_device): #, ev_run):
-        threading.Thread.__init__(self)
+        self.hb_dna = hb_device
         self.ev_run = threading.Event()
         self.running = False
         self.halt = False
         self.ev_is_dead = threading.Event()
-        self.hb_dna = hb_device
+        threading.Thread.__init__(self)
 
     def run(self):
         print("Starting Thread")
@@ -18,12 +18,17 @@ class DevReader (threading.Thread):
             if not self.running :
                 self.running = True
                 print("DevReader flushing")
+                self.hb_dna.read_device()
+                print("DevReader flushed !")
             if self.halt: 
                 print("DevReader aborting")
                 self.ev_is_dead.set()
                 break
-            print("DevReader running")
-            time.sleep(10)
+
+            self.hb_dna.read_device()
+                
+#            print("DevReader running")
+#            time.sleep(10)
 
     def pause(self):
         print("DevReader pausing")
@@ -56,4 +61,4 @@ while cmd != "q":
 dev_reader.stop()
 print("waiting for dev_reader termination")
 dev_reader.ev_is_dead.wait()
-print("ev_event is now down - quitting !")
+print("dev_reader thread is now down - quitting !")
